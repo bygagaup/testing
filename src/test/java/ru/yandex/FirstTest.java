@@ -34,12 +34,16 @@ public class FirstTest extends WebDriverSettings {
 //        2. Зайти на yandex.ru.
         driver.get("https://yandex.ru/");
 
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+
+        if (driver.findElements(By.cssSelector("[class=\"_2EPSjI-GdM _1PSvaLPzKx BCVQlNQsVv\"]")).size() > 0)
+            driver.findElement(By.cssSelector("[class=\"_2EPSjI-GdM _1PSvaLPzKx BCVQlNQsVv\"]")).click();
+
 //        3. Перейти в яндекс маркет
         driver.findElement(By.cssSelector("[href=\"https://market.yandex.ru/?clid=505&utm_source=" +
                 "face_abovesearch&utm_campaign=face_abovesearch\"]")).click();
         nextWindow(driver);
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logoPartMarket")));
 
 //        4. Выбрать раздел Компьютеры
