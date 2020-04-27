@@ -9,6 +9,7 @@ public class WebDriverSettings {
 
     @Before
     public void setUp() {
+//        1. Открыть браузер и развернуть на весь экран.
         System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver81_win32.exe");
         driver = new ChromeDriver();
     }
