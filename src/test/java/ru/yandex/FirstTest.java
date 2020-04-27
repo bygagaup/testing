@@ -36,8 +36,8 @@ public class FirstTest extends WebDriverSettings {
 
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
-        if (driver.findElements(By.cssSelector("[class=\"_2EPSjI-GdM _1PSvaLPzKx BCVQlNQsVv\"]")).size() > 0)
-            driver.findElement(By.cssSelector("[class=\"_2EPSjI-GdM _1PSvaLPzKx BCVQlNQsVv\"]")).click();
+        if (driver.findElements(By.cssSelector("[class=\"_2EPSjI-GdM _2s55WErgIp BCVQlNQsVv\"]")).size() > 0)
+            driver.findElement(By.cssSelector("[class=\"_2EPSjI-GdM _2s55WErgIp BCVQlNQsVv\"]")).click();
 
 //        3. Перейти в яндекс маркет
         driver.findElement(By.cssSelector("[href=\"https://market.yandex.ru/?clid=505&utm_source=" +
