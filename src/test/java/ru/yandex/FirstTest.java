@@ -82,7 +82,7 @@ public class FirstTest extends WebDriverSettings {
 
 //        12. Запомнить наименование первого значения в списке.
         String name = driver.findElement(By.xpath("//div[@class=\"n-snippet-list n-snippet-list_type_vertical metrika " +
-                "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a")).getText();
+                "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a")).getAttribute("title");
 
 //        13. В поисковую строку ввести запомненное значение.
         driver.findElement(By.id("header-search")).sendKeys(name);
@@ -94,7 +94,7 @@ public class FirstTest extends WebDriverSettings {
                 "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a")));
 
         String name2 = driver.findElement(By.xpath("//div[@class=\"n-snippet-list n-snippet-list_type_vertical metrika " +
-                "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a")).getText();
+                "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a")).getAttribute("title");
 
 //        15. Проверить, что наименование товара соответствует запомненному значению.
         Assert.assertEquals(name, name2);
