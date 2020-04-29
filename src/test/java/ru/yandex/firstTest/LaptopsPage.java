@@ -28,7 +28,7 @@ public class LaptopsPage {
         System.out.println("3");
         driver.findElement(By.id("glpricefrom")).sendKeys("10000");
         System.out.println("4");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpriceto")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpriceto")));
         System.out.println("5");
         driver.findElement(By.id("glpriceto")).sendKeys("30000");
         System.out.println("6");
@@ -67,7 +67,7 @@ public class LaptopsPage {
 //        14. Нажать кнопку «Найти»
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class=\"_1XiEJDPVpk\"]")));
         driver.findElement(By.cssSelector("button[class=\"_1XiEJDPVpk\"]")).click();
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 12));
+//        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 12));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstOffersTitle)));
         String name2 = driver.findElement(By.xpath(firstOffersTitle)).getAttribute("title");
 //        15. Проверить, что наименование товара соответствует запомненному значению.
