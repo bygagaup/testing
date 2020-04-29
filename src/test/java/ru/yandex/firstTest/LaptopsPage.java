@@ -20,25 +20,26 @@ public class LaptopsPage {
             "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a";
 
     public void setPrice() {
+        System.out.println("1");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("27903767-tab")));
+        System.out.println("2");
 //        6. Задать параметр «Цена, Р» от 10000 до 30000 рублей.
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpricefrom")));
+        System.out.println("3");
         driver.findElement(By.id("glpricefrom")).sendKeys("10000");
+        System.out.println("4");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpriceto")));
+        System.out.println("5");
         driver.findElement(By.id("glpriceto")).sendKeys("30000");
+        System.out.println("6");
     }
 
     public void setManufacturer() {
 //        7. Выбрать производителя HP и Lenovo
-        System.out.println("1");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for=\"7893318_152981\"]")));
-        System.out.println("2");
         driver.findElement(By.cssSelector("[for=\"7893318_152981\"]")).click();
-        System.out.println("3");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for=\"7893318_152722\"]")));
-        System.out.println("4");
         driver.findElement(By.cssSelector("[for=\"7893318_152722\"]")).click();
-        System.out.println("5");
 //        8. Дождаться результатов поиска.
         wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 48));
     }
