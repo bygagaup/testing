@@ -30,10 +30,15 @@ public class LaptopsPage {
 
     public void setManufacturer() {
 //        7. Выбрать производителя HP и Lenovo
+        System.out.println("1");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for=\"7893318_152981\"]")));
+        System.out.println("2");
         driver.findElement(By.cssSelector("[for=\"7893318_152981\"]")).click();
+        System.out.println("3");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for=\"7893318_152722\"]")));
+        System.out.println("4");
         driver.findElement(By.cssSelector("[for=\"7893318_152722\"]")).click();
+        System.out.println("5");
 //        8. Дождаться результатов поиска.
         wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 48));
     }
