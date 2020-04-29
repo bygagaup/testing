@@ -24,7 +24,7 @@ public class LaptopsPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("27903767-tab")));
         System.out.println("2");
 //        6. Задать параметр «Цена, Р» от 10000 до 30000 рублей.
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpricefrom")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpricefrom")));
         System.out.println("3");
         driver.findElement(By.id("glpricefrom")).sendKeys("10000");
         System.out.println("4");
