@@ -2,9 +2,13 @@ package ru.yandex.firstTest;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class LaptopsPage {
     private WebDriver driver;
@@ -20,6 +24,7 @@ public class LaptopsPage {
             "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a";
 
     public void setPrice() {
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         System.out.println("1");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("27903767-tab")));
         System.out.println("2");
