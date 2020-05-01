@@ -35,31 +35,22 @@ public class TransitionPage {
     }
 
     public void open() {
-//        1. Открыть браузер и развернуть на весь экран.
-        driver.manage().window().maximize();
-//        2. Зайти на yandex.ru.
         driver.get("https://yandex.ru/");
     }
 
     public void goMarket() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(marketLinkLocator));
-//        3. Перейти в яндекс маркет
         driver.findElement(marketLinkLocator).click();
-        nextWindow();
     }
 
     public void goComputer() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(computerLinkLocator));
         driver.findElement(headerSearch).click();
-//        4. Выбрать раздел Компьютеры
         driver.findElement(computerLinkLocator).click();
-        nextWindow();
     }
 
     public void goLaptops() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(laptopsLinkLocator));
-//        5. Выбрать раздел Ноутбуки
         driver.findElement(laptopsLinkLocator).click();
-        nextWindow();
     }
 }

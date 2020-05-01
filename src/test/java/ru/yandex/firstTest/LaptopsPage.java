@@ -23,52 +23,45 @@ public class LaptopsPage {
     private String firstOffersTitle = "//div[@class=\"n-snippet-list n-snippet-list_type_vertical metrika " +
             "b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited\"]/div[1]//h3/a";
 
-    public void setPrice() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("27903767-tab")));
-//        6. Задать параметр «Цена, Р» от 10000 до 30000 рублей.
+    public void setMinPrice(String minPrice) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpricefrom")));
-        driver.findElement(By.id("glpricefrom")).sendKeys("10000");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpriceto")));
-        driver.findElement(By.id("glpriceto")).sendKeys("30000");
+        driver.findElement(By.id("glpricefrom")).sendKeys(minPrice);
     }
 
-    public void setManufacturer() {
-//        7. Выбрать производителя HP и Lenovo
+    public void setMaxPrice(String maxPrice) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("glpriceto")));
+        driver.findElement(By.id("glpriceto")).sendKeys(maxPrice);
+    }
+
+    public void setManufacturerLenovo() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for=\"7893318_152981\"]")));
         driver.findElement(By.cssSelector("[for=\"7893318_152981\"]")).click();
+    }
+
+    public void setManufacturerHp() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for=\"7893318_152722\"]")));
         driver.findElement(By.cssSelector("[for=\"7893318_152722\"]")).click();
-//        8. Дождаться результатов поиска.
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 48));
     }
 
-    public void setNumberOffers() {
-//        9. Установить количество показываемых элементов на страницу 12 (Элемент находиться в самом низу страницы)
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span//button[@type='button']")));
+    public void waitOffers(int number) {
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), number));
+    }
+
+    public void setNumberOffers12() {
         driver.findElement(By.xpath("//span//button[@type='button']")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div//div//div//span[@class='select__text'" +
-                " and text()='Показывать по 12']")));
-        driver.findElement(By.xpath("//div//div//div//span[@class='select__text' and text()='Показывать по 12']")).click();
-//        10. Дождаться обновления результатов.
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 12));
-//        11. Проверить, что на странице отобразилось 12 элементов.
-        Assert.assertEquals(12, driver.findElements(By.xpath(offers)).size());
+        driver.findElement(By.xpath("//span[@class='select__text' and text()='Показывать по 12']")).click();
     }
 
-    public void firstOffersVerification() {
-//        12. Запомнить наименование первого значения в списке.
+    public String nameFirstOffers() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstOffersTitle)));
-        String name = driver.findElement(By.xpath(firstOffersTitle)).getAttribute("title");
-//        13. В поисковую строку ввести запомненное значение.
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("header-search")));
-        driver.findElement(By.id("header-search")).sendKeys(name);
-//        14. Нажать кнопку «Найти»
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class=\"_1XiEJDPVpk\"]")));
+        return driver.findElement(By.xpath(firstOffersTitle)).getAttribute("title");
+    }
+
+    public void inputSearch(String input) {
+        driver.findElement(By.id("header-search")).sendKeys(input);
+    }
+
+    public void pressFindButton() {
         driver.findElement(By.cssSelector("button[class=\"_1XiEJDPVpk\"]")).click();
-//        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(offers), 12));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstOffersTitle)));
-        String name2 = driver.findElement(By.xpath(firstOffersTitle)).getAttribute("title");
-//        15. Проверить, что наименование товара соответствует запомненному значению.
-        Assert.assertEquals(name, name2);
     }
 }
